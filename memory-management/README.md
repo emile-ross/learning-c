@@ -9,3 +9,7 @@ this means the data pointed to by the pointer could be anything.  It can be a ch
 
 we are treating it as a string but it's still declared as a void*
  
+## f-malloc.c
+
+the f-malloc file makes basic use of the malloc() function
+it allocates buffers based on the size of the data it contains
