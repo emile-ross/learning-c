@@ -2,8 +2,25 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(void)
+int main(int argc, char *argv[])
 {
+	if (argv > 2)
+	{
+		int flag_length = (int)strlen(argv[1]);
+		char *flag_srt = malloc((size_t)flag_length);
+		strcpy(flag_str, argv[1]);
+		printf("%s\n", (char*)flag_str);
+		
+		size_t full_str_length = strlen(argv[2]) + (size_t)flag_length;
+		char *full_str = malloc(full_str_length);
+		strcpy(full_str, flag_str);
+		free(flag_str);
+		strcat(full_str, argv[2]);
+		printf("%s\n", full_str);
+		
+		free(full_str);
+		return 0;
+	}
 	char *basic_text = "Hello World!";
 	int big_number = 19258;
 	int number_str_size = 1 + snprintf(NULL, 0, "%d", big_number);
@@ -26,4 +43,5 @@ int main(void)
 	/* free the allocated memory */
 	free(cool_buffer);
 	free(number_str);
+	return 0;
 }
