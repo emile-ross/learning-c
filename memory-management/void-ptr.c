@@ -16,8 +16,14 @@ int main(void)
 	strcpy(cool_buffer, basic_text);
 	strcat(cool_buffer, number_str);
 
-	printf("Memory address: %p\n", cool_buffer);
-	printf("Contents of the buffer: %s\n", (char*)cool_buffer);
+	printf("The address of cool_buffer: %p\n", cool_buffer);
+	printf("The address of number_str: %p\n", number_str);
+	printf("The address of basic_text: %p\n", basic_text);
+	printf("cool_buffer: %s\n", (char*)cool_buffer); /* dereference the void* pointer and cast it to a string */
+	printf("basic_text: %s\n", basic_text);
+	printf("number_str: %s\n", number_str);
+
+	/* free the allocated memory */
 	free(cool_buffer);
 	free(number_str);
 }
