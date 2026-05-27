@@ -4,10 +4,10 @@
 
 int main(int argc, char *argv[])
 {
-	if (argv > 2)
+	if (argc > 2)
 	{
 		int flag_length = (int)strlen(argv[1]);
-		char *flag_srt = malloc((size_t)flag_length);
+		char *flag_str = malloc((size_t)flag_length);
 		strcpy(flag_str, argv[1]);
 		printf("%s\n", (char*)flag_str);
 		

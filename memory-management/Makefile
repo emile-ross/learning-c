@@ -1,8 +1,8 @@
-FG = -Wall -Wextra -Wpedantic -Wconversion -std=c99
-
-f-malloc = f-malloc.c -o malloc
+FG = -Wall -Wextra -Wpedantic -Wconversion -std=c99 -Wshadow
 
 CC = zig cc
 
 base:
-	$(CC) $(f-malloc) $(FG)
+	$(CC) f_malloc.c -o malloc $(FG)
+	$(CC) pointer_math.c -o ptr_math $(FG)
+	$(CC) void_ptr.c -o void_ptr $(FG)
