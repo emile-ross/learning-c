@@ -229,5 +229,10 @@ void err(int err_code)
 					"Unknown error message");
 
 	}
+
+	if (critical)
+	{
+		exit(err_code);
+	}
 	printf("\x1b[31m%s\n\x1B[0m", error_message);
 }
