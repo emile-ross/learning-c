@@ -7,6 +7,14 @@ There's also a new GUI calculator using gtk and css for the style
 
 ---
 
+## installing a compiler
+
+A compiler is needed in order to execute the source code.  
+
+GCC is the most common compiler, check if you already have it by executing ``gcc --version``
+
+If this returns an error, proceed with the instructions below.  
+
 ### **For Linux (Ubuntu/Debian-based):**
 
 #### **Install GCC:**
