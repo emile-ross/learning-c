@@ -1,7 +1,8 @@
-FLAGS = -Werror -Wall -Wextra
+FLAGS = -Werror -Wall -Wextra -Wconversion -std=c99
 
 speed_convert = allure-to-speed.c -o speed
 switch_compile_cmd = switch-fallthrough.c -o switch-fallthrough
+number_sum = find_sum_2_numbers.c -o find_sum_2_numbers
 pwd_compile = pwd.c -o pwd
 leap_year = leap-year.c -o leap
 keyboard = keyboard-bytes.c -o keyboard
@@ -19,6 +20,7 @@ base:
 	$(cc) $(keyboard) $(BASE) $(ER) $(C99)
 	$(cc) $(leap_year) $(FG) $(ER) $(C99)
 	$(cc) $(pwd_compile) $(BASE) $(ER)
+	$(cc) $(number_sum) $(BASE) $(ER) $(C99)
 
 clean: 
 	@rm switch-fallthrough

@@ -199,16 +199,16 @@ void parse_values(bool find_speed, bool no_convert, bool source_miles, int arg_o
 	{
 		for (int i = 0; i < num_valid_results; i++)
 		{
-		    long double value = valid_results[i];
-		    printf("Speed is: %.19Lf\n", value);
+			long double value = valid_results[i];
+			printf("Speed is: %.19Lf\n", value);
 		}
 	}
 	else
 	{
 		for (int i = 0; i < num_valid_results; i++)
 		{
-		    long double value = valid_results[i];
-		    printf("Allure is: %.19Lf\n", value);
+			long double value = valid_results[i];
+			printf("Allure is: %.19Lf\n", value);
 		}
 	}
 }
