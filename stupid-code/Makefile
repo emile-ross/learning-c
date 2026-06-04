@@ -1,10 +1,10 @@
-ALL_FLAGS = -Wall -Wextra -Wpedantic -std=c99 -Wconversion
+ALL_FLAGS = -Wall -Wextra -Wpedantic -std=c99 -Wconversion -Wshadow
 
 GCC = gcc
 ZIG = zig cc
 
 delete = delete.c -o del
-kill_p = russian-roulette.c -o kill-process
+kill_p = russian_roulette.c -o kill-process
 
 
 all:
