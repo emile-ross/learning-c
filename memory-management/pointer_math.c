@@ -5,6 +5,16 @@
 int main(void)
 {
 	char *basic_data = "OIJDuashduoiyabousdbfaoiufbasduifbaofybasoufdybasdmnlkjjhweopqwueoyqofdigzxhe087h*(G78ogvbrouybO*&G";
+	size_t basic_data_size = strlen(basic_data);
+
+	if (!(basic_data_size > 0))
+	{
+		return 1;
+	}
+
+	char *new_string = *(&basic_data + (basic_data_size / 2));
+	printf("%s\n", new_string);
+
 	size_t data_size = 1 + (size_t)snprintf(NULL, 0, "%s %s", basic_data, basic_data);
 	void* basic_buffer = malloc(data_size);
 	snprintf(basic_buffer, data_size, "%s %s", basic_data, basic_data);
