@@ -62,7 +62,7 @@ int main(void)
 	else if (choice == 3 )
 	{
 	    	// use system entropy in order to generate a random number
-	    	unsigned int third = (entropy() % (ub - lb + 1)) + lb;
+	    	unsigned int third = (unsigned int)(entropy() % (ub - lb + 1)) + lb;
 	    	printf("\nA pretty random number: %u\n", third);
 	}
 	else if (choice == 0 )

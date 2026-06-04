@@ -1,7 +1,7 @@
 ZIG = zig cc 
 GCC = gcc
 
-FG = -Wall -Wextra -Wpedantic
+FG = -Wall -Wextra -Wpedantic -Wconversion -std=c99
 
 PRIME_SQRT = check_if_prime.c -o check_if_prime
 TAXES = taxes.c -o taxes
