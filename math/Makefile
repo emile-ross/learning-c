@@ -3,7 +3,8 @@ GCC = gcc
 
 FG = -Wall -Wextra -Wpedantic
 
-PRIME_SQRT = check-if-prime.c -o check-if-prime
+PRIME_SQRT = check_if_prime.c -o check_if_prime
+TAXES = taxes.c -o taxes
 DIVIDE_SRC = dividing.c -o div
 
 base:
