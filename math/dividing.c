@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 
 	int i; /* declare i in order for the variable to be in scope at the end */
 
-    	for (i = u_input / 2 + 1; i > 1; i--)
+    	for (i = (int)u_input / 2 + 1; i > 1; i--)
     	{
     	    	if (u_input % i == 0)
     	    	{
@@ -58,13 +58,13 @@ int main(int argc, char *argv[])
 
 void get_input(int array_size)
 {
-    int i;
-    for (i = 1; i <= array_size; i++)
-    {
-		long int temp_input;
-    	printf("Type value %d: \n", i);
-    	scanf("%ld", &temp_input);
-		int index = i - 1;
-		values[index] = temp_input;
-    }
+	int i;
+	for (i = 1; i <= array_size; i++)
+	{
+	    	size_t temp_input;
+		printf("Type value %d: \n", i);
+		scanf("%zu", &temp_input);
+	    	int index = i - 1;
+	    	values[index] = (int)temp_input;
+	}
 }
