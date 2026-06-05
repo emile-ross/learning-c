@@ -10,6 +10,8 @@
 
 bool ignore_errors = true; /* globals */
 
+bool verbose = false;
+
 void err(int err_code);
 void parse_values(bool find_speed, bool no_convert, bool source_miles, int arg_offset, int number_of_values, char *arguments[]);
 
@@ -40,7 +42,11 @@ int main(int argc, char *argv[])
 					printf("-i flag found\n");
 					if (strcmp(argv[arg_read], "miles") == 0 || strcmp(argv[arg_read], "mile") == 0)
 					{
-						printf("Miles\n");
+						if (verbose)
+						{
+							printf("converting to Miles\n");
+						}
+						
 						out_miles = true;
 						arg_read++;
 						args_before_values++;
@@ -75,7 +81,10 @@ int main(int argc, char *argv[])
 					printf("-o flag found\n");
 					if (strcmp(argv[arg_read], "miles") == 0 || strcmp(argv[arg_read], "mile") == 0)
 					{
-						printf("Miles\n");
+						if (verbose)
+						{
+							printf("converting from Miles\n");
+						}
 						in_miles = true;
 						arg_read++;
 						args_before_values++;
