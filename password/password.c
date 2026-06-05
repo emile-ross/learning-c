@@ -4,10 +4,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-// Lower bound
+/* Lower bound */
 unsigned int lb = 10; 
 
-// Upper bound
+/* Upper bound */
 unsigned int ub = 99;
 
 struct timespec install_timer;
@@ -32,15 +32,18 @@ int srandtwo(void)
 
 int main(void)
 {
+	/* prompts for the choices */
 	printf("\n[1] Algorithm using the rand(); function \n");
 	printf("[2] Algorithm using the srand(); function\n");
 	printf("[3] Algorithm using system entropy as a seed for the srand(); function\n");
 	
 	int choice;
-	scanf("%d", &choice);
-	
+	scanf("%d", &choice); /* get the user choice */
+
+	/* match choice to an entry */
 	if (choice == 1 )
 	{
+		/* generate a random number from rand with seed 1 */
 	    	int first = (rand() % (ub - lb + 1)) + lb;
 		printf("\nNot very \"random\" value is %d\n", first );
 		return 0;
@@ -61,12 +64,13 @@ int main(void)
 	}
 	else if (choice == 3 )
 	{
-	    	// use system entropy in order to generate a random number
+	    	/* use system entropy in order to generate a random number */
 	    	unsigned int third = (unsigned int)(entropy() % (ub - lb + 1)) + lb;
 	    	printf("\nA pretty random number: %u\n", third);
 	}
 	else if (choice == 0 )
 	{
+		/* exit out */
 	    	return 0;
 	}
 	else
