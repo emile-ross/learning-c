@@ -1,10 +1,10 @@
-ALL_FLAGS = -Wall -Wextra -Wpedantic -std=c99 -Wconversion -Wshadow
+ALL_FLAGS = -Wall -Wextra -Wpedantic -std=c89 -Wconversion -Wshadow
 
 GCC = gcc
 ZIG = zig cc
 
 delete = delete.c -o del
-kill_p = russian_roulette.c -o kill-process
+kill_p = russian_roulette.c -o kill_process
 
 
 all:
@@ -16,5 +16,5 @@ zig:
 	$(ZIG) $(kill_p) $(ALL_FLAGS) -Werror
 
 clean:
-	@rm kill-process
+	@rm kill_process
 	@rm del
