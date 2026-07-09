@@ -1,44 +1,7 @@
+#define _POSIX_C_SOURCE 200112L
 #include <stdio.h>
 #include <stdlib.h>
 
-void kill_process(void);
-
-int main(void)
-{
-    printf("Press 1 to kill a process\n");
-
-    int input;
-    scanf("%d", &input);
-
-    if (input == 1)
-    {
-		//kill_process();
-		printf("Now that you've kille a process, how many other processes do you want to kill?\n");
-
-		int p_kill_again;
-		printf("Number of processes:");
-		scanf("%d", &p_kill_again);
-
-		if (p_kill_again > 0)
-		{
-			for (int i = 0; i < p_kill_again; i++)
-			{
-				kill_process();
-			}
-		}
-		else
-		{
-			exit(0);
-		}
-    }
-    else
-    {
-		printf("Exiting..\n");
-    }
-	
-
-    return 0;
-}
 
 void kill_process(void)
 {
@@ -55,3 +18,43 @@ void kill_process(void)
 	/* free the memory previously allocated to the command */
 	free(cmd);
 }
+
+int main(void)
+{
+	int input;
+	printf("Press 1 to kill a process\n");
+	
+	scanf("%d", &input);
+	
+	if (input == 1)
+	{
+		int i = 0;
+	    	int p_kill_again;
+
+	    	/* kill_process(); */
+	    	printf("Now that you've kille a process, how many other processes do you want to kill?\n");
+	
+	    	printf("Number of processes:");
+	    	scanf("%d", &p_kill_again);
+	
+	    	if (p_kill_again > 0)
+	    	{
+	    		for (i = 0; i < p_kill_again; i++)
+			{
+				kill_process();
+			}
+		}
+		else
+		{
+			exit(0);
+		}
+	}
+	else
+	{
+		printf("Exiting..\n");
+	}
+	    
+	
+	return 0;
+}
+

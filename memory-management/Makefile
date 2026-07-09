@@ -1,5 +1,4 @@
 FG = -Wall -Wextra -Wpedantic -Wconversion -std=c99 -Wshadow
-
 CC = zig cc
 
 base:
