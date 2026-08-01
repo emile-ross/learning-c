@@ -10,5 +10,17 @@ int main(void)
     fprintf(stderr, "Failed to get input from fgets()\n");
     return 1;
 	}
+
+  /* take in account the null terminator **///
+  size_t user_input_len = 1 + strlen(input_buffer);
+
+  /* allocate memory for the user stringg
+  * this is a different buffer because it doesn'tt
+  * need the full size the first buffer had *///
+  char *user_input = malloc(user_input_len);
+  snprintf(user_input, user_input_len, input_buffer);
+  free(input_buffer);
+
+  free(user_input);
   return 0;
 }
