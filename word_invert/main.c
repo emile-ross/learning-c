@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int game(char *word);
+int game(char *word, size_t len);
 int display_word(char *word, size_t len);
 
 int main(void)
@@ -11,6 +11,7 @@ int main(void)
 	if (fgets(input_buffer, (int)input_max_len, stdin) == NULL)
 	{
     fprintf(stderr, "Failed to get input from fgets()\n");
+    free(input_buffer);
     return 1;
 	}
 
@@ -38,7 +39,7 @@ int game(char *word, size_t len)
 
 int display_word(char *word, size_t len)
 {
-  printf("The word you typed is: \"%s\");
+  printf("The word you typed is: \"%s\"", word);
 
   if (len > 8)
   {
@@ -46,11 +47,12 @@ int display_word(char *word, size_t len)
     if (len > 28)
     {
          printf("\"word\"\n");
-         printf("I've never seen this \"word\" before\n")
+         printf("I've never seen it before\n");
     }
     else
     {
          printf("word\n");
     }
   }
+  return 0;
 }
