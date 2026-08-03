@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int game(char *word);
+int display_word(char *word, size_t len);
+
 int main(void)
 {
   size_t input_max_len = 255;
@@ -18,9 +21,17 @@ int main(void)
   * this is a different buffer because it doesn'tt
   * need the full size the first buffer had *///
   char *user_input = malloc(user_input_len);
-  snprintf(user_input, user_input_len, input_buffer);
+  snprintf(user_input, user_input_len, "%s", input_buffer);
   free(input_buffer);
 
+
   free(user_input);
+  return 0;
+}
+
+int game(char *word, size_t len)
+{
+  display_word(word, len);
+
   return 0;
 }
