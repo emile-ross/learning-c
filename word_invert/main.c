@@ -35,3 +35,9 @@ int game(char *word, size_t len)
 
   return 0;
 }
+
+int display_word(char *word, size_t len)
+{
+	printf("The word you typed is: \"%s\"");
+    return 0;
+}
