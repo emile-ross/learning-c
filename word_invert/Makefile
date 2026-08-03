@@ -10,3 +10,6 @@ all:
 
 base: 
 	$(CC) $(SRC_FILES) $(OUT) $(CFLAGS)
+
+obj:
+	$(CC) -c $(SRC_FILES) $(CFLAGS)
