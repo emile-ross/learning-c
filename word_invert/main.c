@@ -38,6 +38,19 @@ int game(char *word, size_t len)
 
 int display_word(char *word, size_t len)
 {
-	printf("The word you typed is: \"%s\"");
-    return 0;
+  printf("The word you typed is: \"%s\");
+
+  if (len > 8)
+  {
+    printf("That's a pretty long ");
+    if (len > 28)
+    {
+         printf("\"word\"\n");
+         printf("I've never seen this \"word\" before\n")
+    }
+    else
+    {
+         printf("word\n");
+    }
+  }
 }
