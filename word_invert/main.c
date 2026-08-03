@@ -7,8 +7,8 @@ int main(void)
   char *input_buffer = malloc(input_max_len);
 	if (fgets(input_buffer, (int)input_max_len, stdin) == NULL)
 	{
-		fprintf(stderr, "Failed to get input from fgets()\n");
-		return 1;
+    fprintf(stderr, "Failed to get input from fgets()\n");
+    return 1;
 	}
 
   /* take in account the null terminator **///
