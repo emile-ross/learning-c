@@ -1,15 +1,17 @@
 CC = gcc
 
-SRC_FILES = main.c
+SRC_FILES := main
 
 CFLAGS = -Wall -Wextra -Wpedantic -Wconversion
 OUT = -o game
 
+FILES := $(addsuffix .c, $(SRC_FILES))
+
 all:
-	$(CC) $(SRC_FILES) $(OUT)
+	$(CC) $(FILES) $(OUT)
 
 base: 
-	$(CC) $(SRC_FILES) $(OUT) $(CFLAGS)
+	$(CC) $(FILES) $(OUT) $(CFLAGS)
 
 obj:
-	$(CC) -c $(SRC_FILES) $(CFLAGS)
+	$(CC) -c $(FILES) $(CFLAGS)
