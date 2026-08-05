@@ -6,7 +6,7 @@ int display_word(char *word, size_t len);
 
 int main(void)
 {
-	size_t input_max_len = 255;
+	size_t input_max_len = 1024;
 	char *input_buffer = malloc(input_max_len);
 	if (fgets(input_buffer, (int)input_max_len, stdin) == NULL)
 	{
@@ -25,6 +25,7 @@ int main(void)
 	snprintf(user_input, user_input_len, "%s", input_buffer);
 	free(input_buffer);
 	
+	game(user_input, user_input_len);
 	
 	free(user_input);
 	return 0;
@@ -32,27 +33,27 @@ int main(void)
 
 int game(char *word, size_t len)
 {
-  display_word(word, len);
-
-  return 0;
+	display_word(word, len);
+	
+	return 0;
 }
 
 int display_word(char *word, size_t len)
 {
-  printf("The word you typed is: \"%s\"", word);
-
-  if (len > 8)
-  {
-    printf("That's a pretty long ");
-    if (len > 28)
-    {
-         printf("\"word\"\n");
-         printf("I've never seen it before\n");
-    }
-    else
-    {
-         printf("word\n");
-    }
-  }
-  return 0;
+	printf("The word you typed is: \"%s\"", word);
+	
+	if (len > 8)
+	{
+		printf("That's a pretty long ");
+		if (len > 28)
+		{
+			printf("\"word\"\n");
+			printf("I've never seen it before\n");
+		}
+		else
+		{
+			printf("word\n");
+		}
+	}
+	return 0;
 }
