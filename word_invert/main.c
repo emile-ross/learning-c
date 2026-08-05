@@ -35,6 +35,13 @@ int game(char *word, size_t len)
 {
 	display_word(word, len);
 	
+	char *answer = malloc(len);
+	
+	for (uint16_t i = 0; i < len; i++)
+	{
+		answer[i] = word[(len - 1) - i];
+	}
+	word[len] = '\0';
 	return 0;
 }
 
