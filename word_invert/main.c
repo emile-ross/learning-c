@@ -41,7 +41,14 @@ int game(char *word, size_t len)
 	{
 		answer[i] = word[(len - 1) - i];
 	}
-	word[len] = '\0';
+	answer[len] = '\0';
+
+	if (strcmp(answer, user_answer) == 0)
+	{
+		printf("You typed the word correctly!\n");
+	}
+
+	free(answer);
 	return 0;
 }
 
