@@ -1,1 +1,0 @@
-This makes a simple window displaying the text "Hello world" 
