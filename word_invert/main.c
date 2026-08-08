@@ -43,6 +43,14 @@ int game(char *word, size_t len)
 	}
 	answer[len] = '\0';
 
+	fgets();
+	size_t etr_size = len + 4;
+	char *user_answer = malloc();
+	if (fgets(file_buf[i], 7, file) == NULL) 
+	{
+		break;
+	}
+
 	if (strcmp(answer, user_answer) == 0)
 	{
 		printf("You typed the word correctly!\n");
