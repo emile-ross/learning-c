@@ -43,13 +43,14 @@ int game(char *word, size_t len)
 	}
 	answer[len] = '\0';
 
-	fgets();
-	size_t etr_size = len + 4;
-	char *user_answer = malloc();
-	if (fgets(file_buf[i], 7, file) == NULL) 
+	size_t str_size = len + 4;
+	char *user_answer = malloc(str_size);
+	fgets(*user_answer, (int)str_size, stdin);
+	if (fgets(*user_answer, (int)str_size, stdin) == NULL) 
 	{
-		break;
+		fprintf();
 	}
+	fflush(stdin);
 
 	if (strcmp(answer, user_answer) == 0)
 	{
