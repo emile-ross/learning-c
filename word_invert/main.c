@@ -45,10 +45,9 @@ int game(char *word, size_t len)
 
 	size_t str_size = len + 4;
 	char *user_answer = malloc(str_size);
-	fgets(*user_answer, (int)str_size, stdin);
-	if (fgets(*user_answer, (int)str_size, stdin) == NULL) 
+	if (fgets(user_answer, (int)str_size, stdin) == NULL) 
 	{
-		fprintf();
+		fprintf(stderr, "Failed to get input with fgets()\n");
 	}
 	fflush(stdin);
 
