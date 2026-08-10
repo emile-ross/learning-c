@@ -8,6 +8,7 @@ int main(void)
 {
 	size_t input_max_len = 1024;
 	char *input_buffer = malloc(input_max_len);
+
 	if (fgets(input_buffer, (int)input_max_len, stdin) == NULL)
 	{
 		fprintf(stderr, "Failed to get input from fgets()\n");
@@ -15,7 +16,7 @@ int main(void)
 		return 1;
 	}
 
-	printf("%s\n", input_buffer);
+	printf("input_buffer -> %s \n", input_buffer);
 	
 	/* take in account the null terminator **///
 	size_t user_input_len = strlen(input_buffer);
@@ -25,6 +26,7 @@ int main(void)
 	* need the full size the first buffer had *///
 	char *user_input = malloc(user_input_len);
 	snprintf(user_input, user_input_len, "%s", input_buffer);
+	printf("user_input -> %s \n", user_input);
 	free(input_buffer);
 	
 	game(user_input, user_input_len);
@@ -39,11 +41,11 @@ int game(char *word, size_t len)
 	
 	char *answer = malloc(len);
 	
-	for (uint16_t i = 0; i < len; i++)
+	for (uint16_t i = 1; i < len; i++)
 	{
-		answer[i] = word[(len - 1) - i];
+		size_t j = len - i;
+		answer[i-1] = word[j];
 	}
-	answer[len] = '\0';
 	printf("answer is :%s length: %zu\n", answer, len);
 
 	size_t str_size = len + 4;
