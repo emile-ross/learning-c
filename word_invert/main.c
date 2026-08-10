@@ -14,9 +14,11 @@ int main(void)
 		free(input_buffer);
 		return 1;
 	}
+
+	printf("%s\n", input_buffer);
 	
 	/* take in account the null terminator **///
-	size_t user_input_len = 1 + strlen(input_buffer);
+	size_t user_input_len = strlen(input_buffer);
 	
 	/* allocate memory for the user stringg
 	* this is a different buffer because it doesn'tt
@@ -42,6 +44,7 @@ int game(char *word, size_t len)
 		answer[i] = word[(len - 1) - i];
 	}
 	answer[len] = '\0';
+	printf("answer is :%s length: %zu\n", answer, len);
 
 	size_t str_size = len + 4;
 	char *user_answer = malloc(str_size);
@@ -62,7 +65,7 @@ int game(char *word, size_t len)
 
 int display_word(char *word, size_t len)
 {
-	printf("The word you typed is: \"%s\"", word);
+	printf("The word you typed is: \"%s\"\n", word);
 	
 	if (len > 8)
 	{
