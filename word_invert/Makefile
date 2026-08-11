@@ -3,7 +3,8 @@ CC = gcc
 SRC_FILES := main
 
 CFLAGS = -Wall -Wextra -Wpedantic -Wconversion
-OUT = -o game
+N = game
+OUT = -o $(N)
 
 FILES := $(addsuffix .c, $(SRC_FILES))
 OBJ_FILES := $(addsuffix .o, $(SRC_FILES))
