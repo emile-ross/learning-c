@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int game(char *word, size_t len);
-int display_word(char *word, size_t len);
+int game(char *word);
+int display_word(char *word);
 
 int main(void)
 {
-	size_t input_max_len = 1024;
+	uint16_t input_max_len = 1024;
 	char *input_buffer = malloc(input_max_len);
 
-	if (fgets(input_buffer, (int)input_max_len, stdin) == NULL)
+	if (fgets(input_buffer, input_max_len, stdin) == NULL)
 	{
 		fprintf(stderr, "Failed to get input from fgets()\n");
 		free(input_buffer);
@@ -26,7 +26,7 @@ int main(void)
 	* need the full size the first buffer had *///
 	char *user_input = malloc(user_input_len);
 	snprintf(user_input, user_input_len, "%s", input_buffer);
-	printf("user_input -> %s \n", user_input);
+	printf("user_input -> %s length -> %zu\n", user_input, user_input_len);
 	free(input_buffer);
 	
 	game(user_input, user_input_len);
@@ -35,18 +35,15 @@ int main(void)
 	return 0;
 }
 
-int game(char *word, size_t len)
+int game(char *word)
 {
-	display_word(word, len);
+	display_word(word);
 	
+	uint16_t len = strlen(word);
 	char *answer = malloc(len);
-	
-	for (uint16_t i = 1; i < len; i++)
-	{
-		size_t j = len - i;
-		answer[i-1] = word[j];
-	}
-	printf("answer is :%s length: %zu\n", answer, len);
+
+	size_t j = len - 1;
+	printf("answer is :%s length: %hu\n", answer, len);
 
 	size_t str_size = len + 4;
 	char *user_answer = malloc(str_size);
@@ -61,12 +58,14 @@ int game(char *word, size_t len)
 		printf("You typed the word correctly!\n");
 	}
 
+	free(user_answer);
 	free(answer);
 	return 0;
 }
 
-int display_word(char *word, size_t len)
+int display_word(char *word)
 {
+	uint16_t len = strlen(word);
 	printf("The word you typed is: \"%s\"\n", word);
 	
 	if (len > 8)
@@ -83,4 +82,8 @@ int display_word(char *word, size_t len)
 		}
 	}
 	return 0;
+}
+
+void display_answer(char *word)
+{
 }
