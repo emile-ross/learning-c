@@ -87,3 +87,8 @@ int display_word(char *word)
 void display_answer(char *word)
 {
 }
+
+void print_state(char *word, size_t len)
+{
+	printf("answer is :%s length: %hu\n", word, len);
+}
