@@ -11,7 +11,7 @@ int main(void)
 
 	if (fgets(input_buffer, input_max_len, stdin) == NULL)
 	{
-		fprintf(stderr, "Failed to get input from fgets()\n");
+		fprintf(stderr, "Failed to get nput from fgets()\n");
 		free(input_buffer);
 		return 1;
 	}
@@ -29,7 +29,7 @@ int main(void)
 	printf("user_input -> %s length -> %zu\n", user_input, user_input_len);
 	free(input_buffer);
 	
-	game(user_input, user_input_len);
+	game(user_input);
 	
 	free(user_input);
 	return 0;
@@ -39,7 +39,7 @@ int game(char *word)
 {
 	display_word(word);
 	
-	uint16_t len = strlen(word);
+	uint16_t len = (uint16_t)strlen(word);
 	char *answer = malloc(len);
 
 	size_t j = len - 1;
@@ -65,7 +65,7 @@ int game(char *word)
 
 int display_word(char *word)
 {
-	uint16_t len = strlen(word);
+	uint16_t len = (uint16_t)strlen(word);
 	printf("The word you typed is: \"%s\"\n", word);
 	
 	if (len > 8)
