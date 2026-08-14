@@ -3,13 +3,14 @@
 
 int game(char *word);
 int display_word(char *word);
+void print_state(char *word, size_t len);
 
 int main(void)
 {
 	uint16_t input_max_len = 1024;
 	char *input_buffer = malloc(input_max_len);
 
-	if (fgets(input_buffer, input_max_len, stdin) == NULL)
+	if (fgets(input_buffer, (int)input_max_len, stdin) == NULL)
 	{
 		fprintf(stderr, "Failed to get nput from fgets()\n");
 		free(input_buffer);
@@ -44,6 +45,7 @@ int game(char *word)
 
 	size_t j = len - 1;
 	printf("answer is :%s length: %hu\n", answer, len);
+
 
 	size_t str_size = len + 4;
 	char *user_answer = malloc(str_size);
@@ -86,9 +88,10 @@ int display_word(char *word)
 
 void display_answer(char *word)
 {
+	printf("answer is :%s\n", word);
 }
 
 void print_state(char *word, size_t len)
 {
-	printf("answer is :%s length: %hu\n", word, len);
+	printf("word is :%s length: %zu\n", word, len);
 }
