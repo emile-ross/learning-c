@@ -62,6 +62,14 @@ int game(char *word)
 	}
 	fflush(stdin);
 
+	uint16_t i = 0;
+	while (user_answer[i] != '\0')
+	{
+		if (user_answer[i] == '\n')
+		{
+			user_answer[i] = '\0';
+		}
+	}
 
 	print_state(user_answer, str_size, True);
 
