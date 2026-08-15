@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
+#include <string.h>
 
 int game(char *word);
 int display_word(char *word);
@@ -46,7 +48,7 @@ int game(char *word)
 	char *answer = malloc(len + 1);
 
 	uint16_t j = 0;
-	for (int16_t i = len - 1; i >= 0; i--)
+	for (int32_t i = len - 1; i >= 0; i--)
 	{
 		answer[j] = word[i];
 		j++;
