@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 int game(char *word);
 int display_word(char *word);
-void print_state(char *word, size_t len);
+void print_state(char *word, size_t len, bool answer);
 
 int main(void)
 {
@@ -41,9 +42,15 @@ int game(char *word)
 	display_word(word);
 	
 	uint16_t len = (uint16_t)strlen(word);
-	char *answer = malloc(len);
+	char *answer = malloc(len + 1);
 
-	size_t j = len - 1;
+	uint16_t j = 0;
+	for (int16_t i = len - 1; i >= 0; i--)
+	{
+		answer[j] = word[i];
+		j++;
+	}
+	answer[len] = '\0';
 	printf("answer is :%s length: %hu\n", answer, len);
 
 
@@ -86,12 +93,14 @@ int display_word(char *word)
 	return 0;
 }
 
-void display_answer(char *word)
+void print_state(char *word, size_t len, bool answer)
 {
-	printf("answer is :%s\n", word);
-}
-
-void print_state(char *word, size_t len)
-{
-	printf("word is :%s length: %zu\n", word, len);
+	if (answer)
+	{
+		printf("answer is :%s length: %zu\n", word, len);
+	}
+	else
+	{
+		printf("word is :%s length: %zu\n", word, len);
+	}
 }
