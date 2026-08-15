@@ -1,10 +1,11 @@
+#include "lib.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 int game(char *word);
 int display_word(char *word);
-void print_state(char *word, size_t len, bool answer);
+void print_state(char *word, size_t len, Bool answer);
 
 int main(void)
 {
@@ -18,8 +19,8 @@ int main(void)
 		return 1;
 	}
 
-	printf("input_buffer -> %s \n", input_buffer);
-	
+	print_state(input_buffer, 1024, False);
+
 	/* take in account the null terminator **///
 	size_t user_input_len = strlen(input_buffer);
 	
@@ -51,8 +52,7 @@ int game(char *word)
 		j++;
 	}
 	answer[len] = '\0';
-	printf("answer is :%s length: %hu\n", answer, len);
-
+	print_state(answer, len, True);
 
 	size_t str_size = len + 4;
 	char *user_answer = malloc(str_size);
@@ -61,6 +61,9 @@ int game(char *word)
 		fprintf(stderr, "Failed to get input with fgets()\n");
 	}
 	fflush(stdin);
+
+
+	print_state(user_answer, str_size, True);
 
 	if (strcmp(answer, user_answer) == 0)
 	{
@@ -93,7 +96,7 @@ int display_word(char *word)
 	return 0;
 }
 
-void print_state(char *word, size_t len, bool answer)
+void print_state(char *word, size_t len, Bool answer)
 {
 	if (answer)
 	{
