@@ -1,5 +1,5 @@
-#include <math.h>
 #include <unistd.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -53,7 +53,7 @@ int main(void)
 	    	for (int i = 1; i <= 5; i++)
 	    	{
 			srand(time(NULL)); 
-			int second = (srandtwo() % (ub - lb +1)) + lb;
+			int second = ((int)srandtwo() % (ub - lb +1)) + lb;
 			printf("\nA \"more\" random value: %d\n", second );
 			
 			install_timer.tv_sec = 0;
