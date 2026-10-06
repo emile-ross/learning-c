@@ -4,7 +4,7 @@ FLAGS = -Wall -Wextra -Wconversion -Wpedantic
 OUT := -o bin
 
 unsafe:
-	$(CC) unsafe.c $(OUT) $(FLAGS)
+	$(CC) stack_unsafe.c $(OUT) $(FLAGS)
 
 safe:
 	$(CC) safe.c $(OUT) $(FLAGS)

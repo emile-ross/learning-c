@@ -13,9 +13,14 @@ int main(int argc, char *argv[])
 		return -1;
 	}
 
+	char destination[10] = { 0 };
 	int16_t a = 128;
 	printf("a is valued at \'%u\'\n", a);
-	char destination[10] = { 0 };
+	printf("string is \"%s\"\n", argv[1]);
+
+	/* unsafe write to destination char array */
 	strcpy(destination, argv[1]);
+
 	printf("a is valued at \'%u\'\n", a);
+	printf("string is \"%s\"\n", destination);
 }
