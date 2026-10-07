@@ -1,10 +1,10 @@
 CC := cc
 
 FLAGS = -Wall -Wextra -Wconversion -Wpedantic
-OUT := -o bin
 
 unsafe:
-	$(CC) stack_unsafe.c $(OUT) $(FLAGS)
+	$(CC) stack_unsafe.c -o exp_stack $(FLAGS)
+	$(CC) heap_unsafe.c -o exp_heap $(FLAGS)
 
 safe:
 	$(CC) safe.c $(OUT) $(FLAGS)
