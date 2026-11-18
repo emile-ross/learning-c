@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
 
@@ -45,4 +46,19 @@ int main(int argc, char *argv[])
 		fn_p = &mul;
 
 	printf("%d\n", fun(atoi(argv[1]), atoi(argv[3]), fn_p));
+}
+
+int compare(const char *restrict s1, const char *restrict s2)
+{
+	uint32_t i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0')
+	{
+		if (s1[i] != s2[i])
+			return 0;
+		i++;
+	}
+	if (s1[i] == s2[i])
+		return 1;
+	else 
+		return 0;
 }
