@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+int compare(const char *restrict s1, const char *restrict s2);
+
 int sub(int a, int b)
 {
 	return a - b;
@@ -36,11 +38,11 @@ int main(int argc, char *argv[])
 
 	int (*fn_p)(int, int) = NULL;
 
-	if (strcmp(argv[2], "-") == 0)
+	if (compare(argv[2], "-"))
 		fn_p = &sub;
-	else if (strcmp(argv[2], "+") == 0)
+	else if (compare(argv[2], "+"))
 		fn_p = &add;
-	else if (strcmp(argv[2], "/") == 0)
+	else if (compare(argv[2], "/"))
 		fn_p = &divi;
 	else
 		fn_p = &mul;
