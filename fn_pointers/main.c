@@ -1,66 +1,38 @@
 #include <stdio.h>
-#include <stdint.h>
-#include <string.h>
+#include <stdbool.h>
 #include <stdlib.h>
+#include <stdint.h>
 
-int compare(const char *restrict s1, const char *restrict s2);
 
-int sub(int a, int b)
+struct student {
+	char *name;
+	bool failing;
+	int8_t avg;
+	int8_t grade;
+	int8_t favourite_colour;
+};
+
+void increment_integer(int16_t *large_int);
+
+int main(void)
 {
-	return a - b;
+	struct student a = { NULL, false, 0, 0 };
+
+	increment_integer((int16_t*)&a.grade);
+
+	printf("average: %d\n", a.avg);
+	printf("grade  :%d\n", a.grade);
+	printf("colour :%d\n", a.favourite_colour);
+
+	return 0;
 }
 
-int add(int a, int b)
+void increment_integer(int16_t *large_int)
 {
-	return a + b;
-}
-
-int divi(int a, int b)
-{
-	return a / b;
-}
-int mul(int a, int b)
-{
-	return a * b;
-}
-
-int fun(int a, int b, int (*fun_p)(int, int))
-{
-	if (fun_p == NULL)
-		fprintf(stderr, "NULL fn pointer\n");
-	return (*fun_p)(a, b);
-}
-
-int main(int argc, char *argv[])
-{
-	if (argc < 4)
-		fprintf(stderr, "Missing arguments for operation\n");
-
-	int (*fn_p)(int, int) = NULL;
-
-	if (compare(argv[2], "-"))
-		fn_p = &sub;
-	else if (compare(argv[2], "+"))
-		fn_p = &add;
-	else if (compare(argv[2], "/"))
-		fn_p = &divi;
-	else
-		fn_p = &mul;
-
-	printf("%d\n", fun(atoi(argv[1]), atoi(argv[3]), fn_p));
-}
-
-int compare(const char *restrict s1, const char *restrict s2)
-{
-	uint32_t i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	for (int16_t i = 0; i < 150; i++)
 	{
-		if (s1[i] != s2[i])
-			return 0;
-		i++;
+		(*large_int)++;
+		printf("i    : %d\n", i);
+		printf("large: %d\n", *large_int);
 	}
-	if (s1[i] == s2[i])
-		return 1;
-	else 
-		return 0;
 }
